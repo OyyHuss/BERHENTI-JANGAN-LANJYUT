@@ -1,35 +1,347 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.hero {
+body {
+    font-family: 'Inter', sans-serif;
+    color: #000000;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
     max-width: 1200px;
     margin: auto;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-.hero .navbar-container {
-    background: yellow;
-    display: grid;
+
+
+/* --- Hero Section Styles --- */
+.hero-section {
+    background-color: whitesmoke;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 4%;
+    background-color: #ffffff;
+}
+
+/* Navbar Menu */
+.navbar-menu {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    grid-template-columns: repeat(2, 1fr);
-}
-.hero .hero-title {
-
+    width: 100%;
 }
 
-.hero .hero-content {
+.navbar-title h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-links a {
+    margin-left: 2.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Styling untuk Tautan Navigasi Aktif */
+.navbar-links a.active {
+    font-weight: 700; /* Membuat teks sedikit tebal agar menonjol */
+    border-bottom: 2px solid black; /* Menambahkan garis bawah solid hitam */
+    padding-bottom: 4px; /* Memberi sedikit jarak antara teks dan garis */
+}
+
+/* Hero Info */
+.hero-info {
     text-align: center;
-    margin-top: 100px;
+    margin: auto; /* Memastikan konten selalu di tengah secara vertikal */
+    margin: 100px;
 }
 
-.hero .hero-content .content-info {
-    padding: 10px;
+.hero-info h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    /* Untuk mendapatkan efek teks tebal dan biasa dalam satu baris, 
+       biasanya diperlukan tag <span> di dalam h1.
+       CSS ini menerapkan gaya umum. */
+}
+
+.hero-info .hero-paragraf {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 50px;
+    
+
+}
+
+/* Hero Footer */
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.hero-footer .scroll-link {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Jarak antara ikon dan teks */
 }
 
 
-.hero .hero-content .content-paragraf {
-    margin: 30px;
-    padding: 10px;
+
+
+/* --- About Section Styles --- */
+.about-section {
+    background-color: white;
+    padding: 6rem 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 1000px; /* Batas lebar maksimum gambar */
+    margin-bottom: 3rem;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-info {
+    max-width: 800px;
+}
+
+.about-info p {
+    font-size: 1.75rem;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+
+
+
+
+
+/* --- Content Section / Team Section --- */
+.content-section {
+    padding: 6rem 4%;
+    background-color: #f8f9fa; /* Warna latar sedikit abu-abu seperti di figma */
+}
+
+.content-info {
+    margin-bottom: 4rem;
+}
+
+.content-info p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.content-info h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.content-team {
+    display: grid;
+    /* Membuat 4 kolom di layar besar */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.team-member {
+    position: relative; /* Kunci untuk menempatkan teks di atas gambar */
+    overflow: hidden; /* Memastikan sudut gambar rapi */
+}
+
+.team-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Membuat gambar mengisi area tanpa distorsi */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover img {
+    transform: scale(1.05); /* Efek zoom saat disentuh mouse */
+}
+
+.team-member .team-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1rem;
+    color: white;
+    /* Efek gradasi agar teks lebih terbaca */
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+}
+
+.team-member .team-info p:first-child {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.team-member .team-info p:last-child {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* --- Team Hover Effect --- */
+
+/* Lapisan Info Detail (Awalnya tersembunyi) */
+.team-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Tampilan */
+    background-color: rgba(0, 0, 0, 0.85); /* Latar belakang gelap semi-transparan */
+    color: white;
+    padding: 1.5rem;
+    
+    /* Posisi Konten di Tengah */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Teks mulai dari kiri */
+    
+    /* Efek Transisi */
+    opacity: 0; /* Sembunyikan secara default */
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Aturan saat .team-member di-hover */
+.team-member:hover .team-details {
+    opacity: 1; /* Tampilkan lapisan detail */
+}
+
+.team-member:hover .team-info {
+    opacity: 0; /* Sembunyikan lapisan info awal */
+}
+
+
+/* --- Styling untuk Konten di dalam Overlay Hover --- */
+.team-details h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid white;
+    padding-bottom: 0.5rem;
+}
+
+.team-details p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.team-details .motto {
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem; /* Jarak antar ikon sosial media */
+}
+
+.social-links a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.social-links a:hover {
+    color: #cccccc; /* Warna saat link di-hover */
+}
+
+
+
+
+
+
+
+/* --- Footer Section --- */
+.footer-section {
+    padding: 8rem 4% 2rem 4%;
+    background-color: #f8f9fa;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Membuat elemen sejajar di bagian bawah */
+    gap: 2rem;
+    margin-bottom: 8rem;
+}
+
+.next-page a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-details h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.contact-details p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.copy-right {
+    text-align: center;
+    font-size: 0.875rem;
+    opacity: 0.7;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 992px) {
+    .content-team {
+        /* Ubah jadi 3 kolom di tablet */
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .footer-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-info h1, .contact-details h1 {
+        font-size: 4rem;
+    }
+    .content-team {
+        /* Ubah jadi 2 kolom di mobile */
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
