@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+.hero .navbar-container {
+    background: yellow;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+.hero .hero-title {
+
+}
+
+.hero .hero-content {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.hero .hero-content .content-info {
+    padding: 10px;
+}
+
+
+.hero .hero-content .content-paragraf {
+    margin: 30px;
+    padding: 10px;
+}
